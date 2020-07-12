@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_nav_team"
+        android:icon="@drawable/ic_list_teams"
+        android:title="@string/teams_list"/>
+    <item
+        android:id="@+id/bottom_nav_matchs"
+        android:icon="@drawable/ic_list_matchs"
+        android:title="@string/list_match"/>
+    <item
+        android:id="@+id/bottom_nav_result"
+        android:icon="@drawable/ic_list_matchs"
+        android:title="@string/list_result"/>
+</menu>
