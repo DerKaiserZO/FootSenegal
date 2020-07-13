@@ -1,4 +1,4 @@
-package com.example.footsenegal.ui.ligue;
+package com.example.footsenegal.ui.ligue2;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,11 +13,11 @@ import androidx.fragment.app.Fragment;
 import com.example.footsenegal.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class LigueFragment extends Fragment implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class Ligue2Fragment extends Fragment implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationView bottomNavigationView;
 
-    private ListTeamsFragment listTeamsFragment;
+    private ListTeams2Fragment listTeamsFragment;
 
     private static final String TAG = "ligue";
 
@@ -32,7 +32,7 @@ public class LigueFragment extends Fragment implements BottomNavigationView.OnNa
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container_ligue, new ListTeamsFragment())
+                .replace(R.id.fragment_container_ligue, new ListTeams2Fragment())
                 .commit();
 
 
@@ -45,19 +45,19 @@ public class LigueFragment extends Fragment implements BottomNavigationView.OnNa
         switch (item.getItemId()){
             case R.id.bottom_nav_team: {
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container_ligue, new ListTeamsFragment())
+                        .replace(R.id.fragment_container_ligue, new ListTeams2Fragment())
                         .commit();
                 return true;
             }
             case R.id.bottom_nav_matchs: {
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container_ligue, new ListMatchFragment())
+                        .replace(R.id.fragment_container_ligue, new ListMatch2Fragment())
                         .commit();
                 return true;
             }
             case R.id.bottom_nav_result: {
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container_ligue, new ListResultsFragment())
+                        .replace(R.id.fragment_container_ligue, new ListResults2Fragment())
                         .commit();
                 return true;
             }
