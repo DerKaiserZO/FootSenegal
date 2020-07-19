@@ -45,7 +45,7 @@ public class ListTeamsFragment extends Fragment {
         mTeamRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         try {
-            Call<List<com.example.footsenegal.models.equipe>> call = apiInterface.getListEquipe();
+            Call<List<com.example.footsenegal.models.equipe>> call = apiInterface.getListEquipeLigue1();
             call.enqueue(new Callback<List<equipe>>() {
                 @Override
                 public void onResponse(Call<List<equipe>> call, Response<List<equipe>> response) {
