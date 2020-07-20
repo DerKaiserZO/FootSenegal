@@ -1,6 +1,7 @@
 package com.example.footsenegal.models;
 
 public class match {
+    private int Id;
     private String team_first;
     private String team_second;
     private String Lieu;
@@ -15,6 +16,14 @@ public class match {
         DateMatch = dateMatch;
     }
 
+    public match(int id, String team_first, String team_second, String lieu, int prix, String dateMatch) {
+        Id = id;
+        this.team_first = team_first;
+        this.team_second = team_second;
+        Lieu = lieu;
+        Prix = prix;
+        DateMatch = dateMatch;
+    }
 
     public String getTeam_first() {
         return team_first;
@@ -56,14 +65,24 @@ public class match {
         DateMatch = dateMatch;
     }
 
+    public int getId() {
+        return Id;
+    }
+
     @Override
     public String toString() {
         return "match{" +
-                "team_first='" + team_first + '\'' +
+                "Id=" + Id +
+                ", team_first='" + team_first + '\'' +
                 ", team_second='" + team_second + '\'' +
                 ", Lieu='" + Lieu + '\'' +
                 ", Prix=" + Prix +
-                ", DateMatch=" + DateMatch +
+                ", DateMatch='" + DateMatch + '\'' +
                 '}';
     }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
 }

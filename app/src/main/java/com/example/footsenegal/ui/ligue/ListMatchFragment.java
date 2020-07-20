@@ -67,13 +67,32 @@ public class ListMatchFragment extends Fragment {
         return root;
     }
 
+
     private class MatchHolder extends RecyclerView.ViewHolder {
 
-        private TextView mTitleTextView;
+        private TextView mTeamFirst;
+        private TextView mTeamSecond;
+        private TextView mLieu;
+        private TextView mDate;
+        private TextView mPrix;
+        private com.example.footsenegal.models.match mMatch;
+
+        public void BindMatch(com.example.footsenegal.models.match match){
+            mMatch = match;
+            mTeamFirst.setText(match.getTeam_first());
+            mTeamSecond.setText(match.getTeam_second());
+            mLieu.setText(match.getLieu());
+            mDate.setText( match.getDateMatch());
+            mPrix.setText(Integer.toString(match.getPrix()));
+        }
 
         public MatchHolder(@NonNull View itemView) {
             super(itemView);
-            mTitleTextView = (TextView) itemView;
+            mTeamFirst = (TextView) itemView.findViewById(R.id.team_first);
+            mTeamSecond = (TextView) itemView.findViewById(R.id.team_second);
+            mLieu = (TextView) itemView.findViewById(R.id.Lieu);
+            mDate = (TextView) itemView.findViewById(R.id.date);
+            mPrix = (TextView) itemView.findViewById(R.id.match_prix);
         }
     }
 
@@ -89,14 +108,14 @@ public class ListMatchFragment extends Fragment {
         @Override
         public MatchHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View view = layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+            View view = layoutInflater.inflate(R.layout.list_item_match, parent, false);
             return new MatchHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull MatchHolder holder, int position) {
             com.example.footsenegal.models.match match = mMatchs.get(position);
-            holder.mTitleTextView.setText(match.getTeam_first()+ " VS "+ match.getTeam_second());
+            holder.BindMatch(match);
         }
 
         @Override

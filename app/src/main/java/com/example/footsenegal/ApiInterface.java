@@ -12,4 +12,7 @@ public interface ApiInterface {
 
     @GET("matchs/1")
     Call<List<com.example.footsenegal.models.match>> getListMatchsLigue1();
+
+    @GET("matchs-results/1")
+    Call<List<com.example.footsenegal.models.scoreMatch>> getListMatchsResultsLigue1();
 }

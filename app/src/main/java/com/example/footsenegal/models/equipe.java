@@ -1,10 +1,17 @@
 package com.example.footsenegal.models;
 
 public class equipe {
+    private int Id;
     private String Nom;
     private int type_categorie;
 
     public equipe(String nom, int type_categorie) {
+        Nom = nom;
+        this.type_categorie = type_categorie;
+    }
+
+    public equipe(int id, String nom, int type_categorie) {
+        Id = id;
         Nom = nom;
         this.type_categorie = type_categorie;
     }
@@ -25,10 +32,19 @@ public class equipe {
         this.type_categorie = type_categorie;
     }
 
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
     @Override
     public String toString() {
         return "equipe{" +
-                "Nom='" + Nom + '\'' +
+                "Id=" + Id +
+                ", Nom='" + Nom + '\'' +
                 ", type_categorie=" + type_categorie +
                 '}';
     }

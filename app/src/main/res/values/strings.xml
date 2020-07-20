@@ -45,4 +45,8 @@
     <string name="teams_list">Teams List</string>
     <string name="list_match">Match List</string>
     <string name="list_result">Results List</string>
+    <string name="liste_des_equipes">Liste des equipes</string>
+    <string name="versus">VS</string>
+    <string name="lieu">Stade</string>
+    <string name="date">Date</string>
 </resources>
