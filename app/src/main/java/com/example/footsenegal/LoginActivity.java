@@ -1,5 +1,6 @@
 package com.example.footsenegal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,8 +51,14 @@ public class LoginActivity extends AppCompatActivity {
                     call.enqueue(new Callback<com.example.footsenegal.models.status>() {
                         @Override
                         public void onResponse(Call<com.example.footsenegal.models.status> call, Response<com.example.footsenegal.models.status> response) {
-                            Toast.makeText(LoginActivity.this, response.body().toString(),Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "onResponse: click yeah");
+                            String result = response.body().getStatus();
+                            Log.d(TAG, "result " + result);
+                            if (result.contentEquals("OK")){
+                                Intent i = new Intent(LoginActivity.this, AdminActivity.class);
+                                startActivity(i);
+                            }else {
+                                Toast.makeText(LoginActivity.this, "LOGIN OU MOT DE PASSE INCORRECT",Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override

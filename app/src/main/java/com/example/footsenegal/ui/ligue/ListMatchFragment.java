@@ -23,6 +23,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ListMatchFragment extends Fragment {
 
@@ -39,13 +40,17 @@ public class ListMatchFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_list_matchs, container, false);
 
-        apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Retrofit retrofit = ApiClient.getClient();
+
+        apiInterface = retrofit.create(ApiInterface.class);
 
         mTeamRecyclerView = root.findViewById(R.id.list_match_recycler_view);
         mTeamRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+
+
         try {
-            Call<List<com.example.footsenegal.models.match>> call = apiInterface.getListMatchsLigue1();
+            Call<List<com.example.footsenegal.models.match>> call = apiInterface.getListMatchsLigue(1);
             call.enqueue(new Callback<List<com.example.footsenegal.models.match>>() {
                 @Override
                 public void onResponse(Call<List<com.example.footsenegal.models.match>> call, Response<List<com.example.footsenegal.models.match>> response) {

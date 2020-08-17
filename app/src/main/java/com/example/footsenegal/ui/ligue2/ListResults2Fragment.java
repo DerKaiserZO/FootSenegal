@@ -24,6 +24,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ListResults2Fragment extends Fragment {
 
@@ -39,13 +40,15 @@ public class ListResults2Fragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_list_results, container, false);
 
-        apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Retrofit retrofit = ApiClient.getClient();
+
+        apiInterface = retrofit.create(ApiInterface.class);
 
         mTeamRecyclerView = root.findViewById(R.id.list_result_match_recycler_view);
         mTeamRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         try {
-            Call<List<scoreMatch>> call = apiInterface.getListMatchsResultsLigue2();
+            Call<List<scoreMatch>> call = apiInterface.getListMatchsResultsLigue(2);
             call.enqueue(new Callback<List<scoreMatch>>() {
                 @Override
                 public void onResponse(Call<List<com.example.footsenegal.models.scoreMatch>> call, Response<List<scoreMatch>> response) {
